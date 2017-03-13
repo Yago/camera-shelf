@@ -1,21 +1,21 @@
-import { Component, Inject, OnInit } from '@angular/core';
-
+import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
+import { BrandsPage } from '../brands/brands';
+
+/*
+  Generated class for the Home page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+*/
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage implements OnInit {
+export class HomePage {
+  brandsPage = BrandsPage;
 
-  constructor(
-    public navCtrl: NavController,
-    @Inject('pbase') private pbase,
-  ) {}
-
-  ngOnInit() {
-    console.log(this.pbase.brands)
-    this.pbase.getBrands();
-  }
+  constructor(public navCtrl: NavController) {}
 
 }
