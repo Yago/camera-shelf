@@ -4,34 +4,21 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <ion-list>
     <ion-list-header>
       Choose something
     </ion-list-header>
-    <button ion-item [navPush]="brandsPage" navParams="analog_cameras">
+    <button
+      ion-item
+      *ngFor="let category of categories"
+      [navPush]="brandsPage"
+      [navParams]="category"
+    >
       <ion-thumbnail item-left>
-        <img src="/assets/img/analog_cameras.png">
+        <img src="/assets/img/{{category.slug}}.png">
       </ion-thumbnail>
-      <h2>Analog cameras</h2>
-    </button>
-    <button ion-item [navPush]="brandsPage" navParams="digital_cameras">
-      <ion-thumbnail item-left>
-        <img src="/assets/img/digital_cameras.png">
-      </ion-thumbnail>
-      <h2>Digital cameras</h2>
-    </button>
-    <button ion-item [navPush]="brandsPage" navParams="lenses">
-      <ion-thumbnail item-left>
-        <img src="/assets/img/lenses.png">
-      </ion-thumbnail>
-      <h2>Lenses</h2>
-    </button>
-    <button ion-item [navPush]="brandsPage" navParams="films">
-      <ion-thumbnail item-left>
-        <img src="/assets/img/films.png">
-      </ion-thumbnail>
-      <h2>Films</h2>
+      <h2>{{category.name}}</h2>
     </button>
   </ion-list>
 </ion-content>

@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Brands</ion-title>
+    <ion-title>{{category.name}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -9,6 +9,13 @@
     Choose a brand
   </ion-list-header>
   <ion-list>
-    <ion-item *ngFor="let brand of pbase.brands">{{brand}}</ion-item>
+    <button
+      ion-item
+      *ngFor="let brand of pbase.brands"
+      [navPush]="ItemsPage"
+      [navParams]="brand.slug"
+    >
+      {{brand.name}}
+    </button>
   </ion-list>
 </ion-content>

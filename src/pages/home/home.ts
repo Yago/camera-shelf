@@ -15,6 +15,24 @@ import { BrandsPage } from '../brands/brands';
 })
 export class HomePage {
   brandsPage = BrandsPage;
+  categories = [
+    {
+      name: "Analog cameras",
+      slug: "analog_cameras",
+    },
+    {
+      name: "Digital cameras",
+      slug: "digital_cameras",
+    },
+    {
+      name: "Lenses",
+      slug: "lenses",
+    },
+    {
+      name: "Films",
+      slug: "films",
+    }
+  ]
 
   constructor(public navCtrl: NavController) {}
 

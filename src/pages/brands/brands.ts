@@ -1,18 +1,18 @@
 import { Component, Inject } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-/*
-  Generated class for the Brands page.
+import { ItemsPage } from '../items/items';
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-brands',
   templateUrl: 'brands.html'
 })
 export class BrandsPage {
-  category : string
+  category: Object = {
+    name: '',
+    slug: '',
+  };
+  itemsPage = ItemsPage;
 
   constructor(
     public navCtrl: NavController,
