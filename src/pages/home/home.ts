@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 
@@ -6,10 +6,16 @@ import { NavController } from 'ionic-angular';
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
-  constructor(public navCtrl: NavController) {
+  constructor(
+    public navCtrl: NavController,
+    @Inject('pbase') private pbase,
+  ) {}
 
+  ngOnInit() {
+    console.log(this.pbase.brands)
+    this.pbase.getBrands();
   }
 
 }
