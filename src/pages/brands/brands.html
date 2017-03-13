@@ -5,15 +5,15 @@
 </ion-header>
 
 <ion-content>
-  <ion-list-header>
-    Choose a brand
-  </ion-list-header>
   <ion-list>
+    <ion-list-header>
+      Choose a brand
+    </ion-list-header>
     <button
       ion-item
       *ngFor="let brand of pbase.brands"
-      [navPush]="ItemsPage"
-      [navParams]="brand.slug"
+      [navPush]="itemsPage"
+      [navParams]="brand"
     >
       {{brand.name}}
     </button>

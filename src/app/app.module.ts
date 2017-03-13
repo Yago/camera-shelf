@@ -4,6 +4,7 @@ import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { BrandsPage } from '../pages/brands/brands';
+import { ItemsPage } from '../pages/items/items';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -16,6 +17,7 @@ import { PbaseService } from '../providers/pbase.service';
     ContactPage,
     HomePage,
     BrandsPage,
+    ItemsPage,
     TabsPage
   ],
   imports: [
@@ -28,6 +30,7 @@ import { PbaseService } from '../providers/pbase.service';
     ContactPage,
     HomePage,
     BrandsPage,
+    ItemsPage,
     TabsPage
   ],
   providers: [
