@@ -1,10 +1,37 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Camera Shelf</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h1>Hello</h1>
-  <button [navPush]="brandsPage" ion-button>Go To Brands</button>
+  <ion-list>
+    <ion-list-header>
+      Choose something
+    </ion-list-header>
+    <button ion-item [navPush]="brandsPage">
+      <ion-thumbnail item-left>
+        <img src="/assets/img/analog_cameras.png">
+      </ion-thumbnail>
+      <h2>Analog cameras</h2>
+    </button>
+    <button ion-item [navPush]="brandsPage">
+      <ion-thumbnail item-left>
+        <img src="/assets/img/digital_cameras.png">
+      </ion-thumbnail>
+      <h2>Digital cameras</h2>
+    </button>
+    <button ion-item [navPush]="brandsPage">
+      <ion-thumbnail item-left>
+        <img src="/assets/img/lenses.png">
+      </ion-thumbnail>
+      <h2>Lenses</h2>
+    </button>
+    <button ion-item [navPush]="brandsPage">
+      <ion-thumbnail item-left>
+        <img src="/assets/img/films.png">
+      </ion-thumbnail>
+      <h2>Films</h2>
+    </button>
+  </ion-list>
 </ion-content>
