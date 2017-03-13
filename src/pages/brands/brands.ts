@@ -12,6 +12,7 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'brands.html'
 })
 export class BrandsPage {
+  category : string
 
   constructor(
     public navCtrl: NavController,
@@ -20,6 +21,7 @@ export class BrandsPage {
   ) {}
 
   ionViewDidLoad() {
+    this.category = this.navParams.data;
     this.pbase.getBrands();
   }
 
