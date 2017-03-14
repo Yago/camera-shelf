@@ -1,7 +1,5 @@
-Ionic 2 App Base
+Camera Shelf
 =====================
-
-This is the base template for Ionic 2 starter apps.
 
 ## Using this project
 
@@ -14,7 +12,7 @@ $ npm install -g ionic
 Then run:
 
 ```bash
-$ ionic start myApp
+$ ionic serve
 ```
 
 More info on this can be found on the Ionic [Getting Started](http://ionicframework.com/docs/v2/getting-started/) page.
