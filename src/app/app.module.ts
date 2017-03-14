@@ -1,9 +1,12 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { AngularFireModule } from 'angularfire2';
+
+import config from '../config/config.json';
 
 import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
+import { AccountPage } from '../pages/account/account';
 import { BrandsPage } from '../pages/brands/brands';
 import { ItemsPage } from '../pages/items/items';
 import { HomePage } from '../pages/home/home';
@@ -14,12 +17,15 @@ import { DecadePipe } from '../pipes/decade.pipe';
 
 import { PbaseService } from '../providers/pbase.service';
 import { FiltersService } from '../providers/filters.service';
+import { FirebaseService } from '../providers/firebase.service';
+
+export const firebaseConfig = config.firebase;
 
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
-    ContactPage,
+    AccountPage,
     HomePage,
     BrandsPage,
     ItemsPage,
@@ -29,12 +35,13 @@ import { FiltersService } from '../providers/filters.service';
   ],
   imports: [
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     AboutPage,
-    ContactPage,
+    AccountPage,
     HomePage,
     BrandsPage,
     ItemsPage,
@@ -45,6 +52,7 @@ import { FiltersService } from '../providers/filters.service';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     { provide: 'pbase', useClass: PbaseService },
     { provide: 'filters', useClass: FiltersService },
+    { provide: 'firebase', useClass: FirebaseService },
   ]
 })
 export class AppModule {}

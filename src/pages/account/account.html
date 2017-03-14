@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>
+      Contact
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="!firebase.authenticated">
+    <h1>Welcome !</h1>
+    <p>
+      If you want to take advantage of all the possibilities of the <strong>Camera Shelf</strong>, we encourage you to sign in with your Google account.
+    </p>
+    <button ion-button icon-left full (click)="firebase.login()">
+      <ion-icon name="logo-google"></ion-icon>
+      Login with Google
+    </button>
+  </div>
+  <div *ngIf="firebase.authenticated">
+    <h1> {{ firebase.displayName() }} </h1>
+    <button ion-button icon-left full (click)="firebase.logout()" color="danger">
+      <ion-icon name="log-out"></ion-icon>
+      Logout
+    </button>
+  </div>
+</ion-content>
