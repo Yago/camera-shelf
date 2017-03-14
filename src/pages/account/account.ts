@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { AngularFireDatabase } from 'angularfire2';
+import { AngularFireDatabase, AngularFireAuth, FirebaseAuthState } from 'angularfire2';
 
 @Component({
   selector: 'page-account',
@@ -13,10 +13,15 @@ export class AccountPage {
   constructor(
     public navCtrl: NavController,
     private db: AngularFireDatabase,
+    public auth$: AngularFireAuth,
     @Inject('firebase') private firebase,
   ) {
-    db.object(`users`).subscribe((snapshot) => {
-      this.items = snapshot[firebase.uid];
+    auth$.subscribe((state: FirebaseAuthState) => {
+      if (state) {
+        db.object(`users`).subscribe((snapshot) => {
+          this.items = snapshot[firebase.uid];
+        });
+      }
     });
   }
 }

@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class FirebaseService {
-  private authState: FirebaseAuthState;
+  private authState: FirebaseAuthState
   uid: string
 
   constructor(
@@ -16,7 +16,9 @@ export class FirebaseService {
     this.authState = auth$.getAuth();
     auth$.subscribe((state: FirebaseAuthState) => {
       this.authState = state;
-      this.uid = state.uid;
+      if (state) {
+        this.uid = state.uid;
+      }
     });
   }
 
