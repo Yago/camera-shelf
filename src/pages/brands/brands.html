@@ -5,13 +5,14 @@
 </ion-header>
 
 <ion-content>
+  <ion-searchbar (ionInput)="findBrand($event)"></ion-searchbar>
   <ion-list>
     <ion-list-header>
       Choose a brand
     </ion-list-header>
     <button
       ion-item
-      *ngFor="let brand of pbase.brands"
+      *ngFor="let brand of brands"
       [navPush]="itemsPage"
       [navParams]="[category, brand]"
     >
