@@ -27,6 +27,7 @@ export class ItemsPage {
     public loadingCtrl: LoadingController,
     @Inject('pbase') private pbase,
     @Inject('filters') private filters,
+    @Inject('firebase') private firebase,
   ) {}
 
   ionViewDidLoad() {

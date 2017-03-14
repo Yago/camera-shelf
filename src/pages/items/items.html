@@ -19,6 +19,12 @@
       </ion-thumbnail>
       <h2>{{item.name}}</h2>
       <p>{{item.year}}</p>
+      <button ion-button icon-only clear item-right (click)="firebase.addItem(item, category.slug)">
+        <ion-icon name="add"></ion-icon>
+      </button>
     </ion-item>
   </ion-list>
+  <div *ngIf="items && items.length === 0" text-center>
+    Sorry, there is no {{category.name | lowercase}} for {{brand.name}} ...
+  </div>
 </ion-content>
