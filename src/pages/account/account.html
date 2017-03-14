@@ -18,10 +18,33 @@
     </button>
   </div>
   <div *ngIf="firebase.authenticated">
-    <h1> {{ firebase.displayName() }} </h1>
-    <button ion-button icon-left full (click)="firebase.logout()" color="danger">
-      <ion-icon name="log-out"></ion-icon>
-      Logout
-    </button>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-8 padding>
+          <h1>{{ firebase.displayName() }}</h1>
+        </ion-col>
+        <ion-col col-4>
+          <button ion-button icon-left (click)="firebase.logout()" color="danger">
+            <ion-icon name="log-out"></ion-icon>
+            Logout
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div *ngIf="items">
+      <ion-list *ngFor="let category of items | keys">
+        <ion-item *ngFor="let item of items[category] | keys">
+          <ion-thumbnail item-left>
+            <img *ngIf="items[category][item].thumb" [src]="items[category][item].thumb">
+          </ion-thumbnail>
+          <h2>{{items[category][item].name}}</h2>
+          <p>{{items[category][item].year}}</p>
+          <button ion-button icon-only clear item-right (click)="firebase.removeItem(items[category][item], category)">
+            <ion-icon name="remove-circle"></ion-icon>
+          </button>
+        </ion-item>
+      </ion-list>
+    </div>
   </div>
 </ion-content>

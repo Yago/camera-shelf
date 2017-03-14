@@ -14,6 +14,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { PopoverPage } from '../pages/popover/popover';
 
 import { DecadePipe } from '../pipes/decade.pipe';
+import { KeysPipe } from '../pipes/keys.pipe';
 
 import { PbaseService } from '../providers/pbase.service';
 import { FiltersService } from '../providers/filters.service';
@@ -31,7 +32,8 @@ export const firebaseConfig = config.firebase;
     ItemsPage,
     TabsPage,
     PopoverPage,
-    DecadePipe
+    DecadePipe,
+    KeysPipe
   ],
   imports: [
     IonicModule.forRoot(MyApp),

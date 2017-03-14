@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class FirebaseService {
   private authState: FirebaseAuthState;
+  uid: string
 
   constructor(
     public auth$: AngularFireAuth,
@@ -15,6 +16,7 @@ export class FirebaseService {
     this.authState = auth$.getAuth();
     auth$.subscribe((state: FirebaseAuthState) => {
       this.authState = state;
+      this.uid = state.uid;
     });
   }
 
@@ -42,14 +44,36 @@ export class FirebaseService {
   }
 
   addItem(item, category) {
-    this.af.database.object(`users/${this.authState.uid}/${category}/${item.id}`).set(item).then(() => {
+    if (this.authState != null) {
+      this.af.database.object(`users/${this.authState.uid}/${category}/${item.id}`).set(item).then(() => {
+        let toast = this.toastCtrl.create({
+          message: `${item.name} was added successfully !`,
+          duration: 2000,
+          position: 'top'
+        });
+        toast.present();
+      });
+    } else {
       let toast = this.toastCtrl.create({
-        message: `${item.name} was added successfully !`,
+        message: `Warning ! To need to log first.`,
         duration: 2000,
         position: 'top'
       });
       toast.present();
-    });
+    }
+  }
+
+  removeItem(item, category) {
+    if (this.authState != null) {
+      this.af.database.object(`users/${this.authState.uid}/${category}/${item.id}`).remove().then(() => {
+        let toast = this.toastCtrl.create({
+          message: `${item.name} was removed successfully !`,
+          duration: 2000,
+          position: 'top'
+        });
+        toast.present();
+      });
+    }
   }
 
 }
