@@ -8,12 +8,13 @@ import { ItemsPage } from '../items/items';
   templateUrl: 'brands.html'
 })
 export class BrandsPage {
-  brands = []
+  brands: any
+  itemsPage = ItemsPage
+
   category: Object = {
     name: '',
     slug: '',
   }
-  itemsPage = ItemsPage
 
   constructor(
     public navCtrl: NavController,
@@ -24,7 +25,7 @@ export class BrandsPage {
   ionViewDidLoad() {
     this.category = this.navParams.data;
     this.pbase.getBrands().then((data) => {
-      this.brands = data;
+      this.brands = [...this.pbase.brands];
     });
   }
 

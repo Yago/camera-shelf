@@ -8,8 +8,12 @@ import { BrandsPage } from '../pages/brands/brands';
 import { ItemsPage } from '../pages/items/items';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { PopoverPage } from '../pages/popover/popover';
+
+import { DecadePipe } from '../pipes/decade.pipe';
 
 import { PbaseService } from '../providers/pbase.service';
+import { FiltersService } from '../providers/filters.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,9 @@ import { PbaseService } from '../providers/pbase.service';
     HomePage,
     BrandsPage,
     ItemsPage,
-    TabsPage
+    TabsPage,
+    PopoverPage,
+    DecadePipe
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -32,11 +38,13 @@ import { PbaseService } from '../providers/pbase.service';
     HomePage,
     BrandsPage,
     ItemsPage,
-    TabsPage
+    TabsPage,
+    PopoverPage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     { provide: 'pbase', useClass: PbaseService },
+    { provide: 'filters', useClass: FiltersService },
   ]
 })
 export class AppModule {}

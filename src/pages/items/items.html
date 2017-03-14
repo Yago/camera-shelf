@@ -1,13 +1,19 @@
 <ion-header>
   <ion-navbar color="dark">
     <ion-title>{{brand.name}}</ion-title>
+    <ion-buttons end *ngIf="items">
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="options"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content>
-  <ion-list *ngIf="pbase.items[brand.slug] && pbase.items[brand.slug][category.slug]">
-    <ion-item *ngFor="let item of pbase.items[brand.slug][category.slug]">
+  <h1>{{something}}</h1>
+  <ion-list *ngIf="items">
+    <ion-item *ngFor="let item of items | decade:filters.decade">
       <ion-thumbnail item-left>
         <img *ngIf="item.thumb" [src]="item.thumb">
       </ion-thumbnail>
