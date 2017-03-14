@@ -1,9 +1,9 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe } from '@angular/core';
 
 @Pipe({
   name: 'decade'
 })
-export class DecadePipe implements PipeTransform  {
+export class DecadePipe {
   transform(value, args) {
     if (args === 'all') {
       return value;

@@ -11,7 +11,7 @@
 
 
 <ion-content>
-  <h1>{{something}}</h1>
+  <ion-searchbar (ionInput)="findItem($event)"></ion-searchbar>
   <ion-list *ngIf="items">
     <ion-item *ngFor="let item of items | decade:filters.decade">
       <ion-thumbnail item-left>
