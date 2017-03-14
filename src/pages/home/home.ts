@@ -14,11 +14,11 @@ import { BrandsPage } from '../brands/brands';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  brandsPage = BrandsPage;
+  brandsPage = BrandsPage
   categories = [
     {
-      name: "Analog cameras",
-      slug: "analog_cameras",
+      name: "Film cameras",
+      slug: "film_cameras",
     },
     {
       name: "Digital cameras",

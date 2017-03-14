@@ -5,6 +5,14 @@
 </ion-header>
 
 
-<ion-content padding>
-  <h1>{{brand.name}}</h1>
+<ion-content>
+  <ion-list *ngIf="pbase.items[brand.slug] && pbase.items[brand.slug][category.slug]">
+    <ion-item *ngFor="let item of pbase.items[brand.slug][category.slug]">
+      <ion-thumbnail item-left>
+        <img *ngIf="item.thumb" [src]="item.thumb">
+      </ion-thumbnail>
+      <h2>{{item.name}}</h2>
+      <p>{{item.year}}</p>
+    </ion-item>
+  </ion-list>
 </ion-content>

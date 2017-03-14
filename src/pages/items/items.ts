@@ -6,10 +6,15 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'items.html'
 })
 export class ItemsPage {
-  brand: Object = {
+  category = {
     name: '',
     slug: '',
-  };
+  }
+
+  brand = {
+    name: '',
+    slug: '',
+  }
 
   constructor(
     public navCtrl: NavController,
@@ -18,8 +23,9 @@ export class ItemsPage {
   ) {}
 
   ionViewDidLoad() {
-    this.brand = this.navParams.data;
-    // this.pbase.getBrands();
+    this.category = this.navParams.data[0];
+    this.brand = this.navParams.data[1];
+    this.pbase.getItems(this.category.slug, this.brand.slug);
   }
 
 }

@@ -11,8 +11,8 @@ export class BrandsPage {
   category: Object = {
     name: '',
     slug: '',
-  };
-  itemsPage = ItemsPage;
+  }
+  itemsPage = ItemsPage
 
   constructor(
     public navCtrl: NavController,

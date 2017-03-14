@@ -12,7 +12,8 @@ import config from '../config/config.json';
 @Injectable()
 export class PbaseService {
 
-  brands = [];
+  brands = []
+  items = {}
 
   constructor(public http: Http) {}
 
@@ -27,6 +28,23 @@ export class PbaseService {
         .subscribe(data => {
           this.brands = data;
           resolve(this.brands);
+        });
+    });
+  }
+
+  getItems(category, brand) {
+    if (this.items[brand] && this.items[brand][category]) {
+      return Promise.resolve(this.items[brand][category]);
+    }
+
+    // console.log(`${config.api.url}/${brand}/${category}`);
+
+    return new Promise(resolve => {
+      this.http.get(`${config.api.url}/${brand}/${category}`)
+        .map(res => res.json())
+        .subscribe(data => {
+          this.items[brand] = { [category]: data };
+          resolve(this.items[brand][category]);
         });
     });
   }

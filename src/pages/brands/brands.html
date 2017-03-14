@@ -13,7 +13,7 @@
       ion-item
       *ngFor="let brand of pbase.brands"
       [navPush]="itemsPage"
-      [navParams]="brand"
+      [navParams]="[category, brand]"
     >
       {{brand.name}}
     </button>
