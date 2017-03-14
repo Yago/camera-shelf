@@ -1,0 +1,12 @@
+{
+  "api": {
+    "url": ""
+  },
+  "firebase": {
+    "apiKey": "",
+    "authDomain": "",
+    "databaseURL": "",
+    "storageBucket": "",
+    "messagingSenderId": ""
+  }
+}
