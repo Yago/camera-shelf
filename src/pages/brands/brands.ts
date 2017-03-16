@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 
 import { ItemsPage } from '../items/items';
 
@@ -19,13 +19,20 @@ export class BrandsPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
+    public loadingCtrl: LoadingController,
     @Inject('pbase') private pbase,
   ) {}
 
   ionViewDidLoad() {
+    let loading = this.loadingCtrl.create({
+      content: 'Load brands...'
+    });
+    loading.present();
+
     this.category = this.navParams.data;
     this.pbase.getBrands().then((data) => {
       this.brands = [...this.pbase.brands];
+      loading.dismiss();
     });
   }
 
